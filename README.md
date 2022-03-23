@@ -23,3 +23,10 @@ https://neigbourhood2022.herokuapp.com/
 * Create Posts that will be visible to everyone in my neighborhood.
 * Change My neighborhood when I decide to move out.
 * Only view details of a single neighborhood.
+
+### TECHNOLOGIES USED
+  * CSS
+  * Django
+  * Bootstrap
+  * HTML
+  * Python
