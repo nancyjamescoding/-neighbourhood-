@@ -3,6 +3,17 @@
 
 ### Description
  web application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
+ ### live Page
+https://neigbourhood2022.herokuapp.com/
+
+### Installation/ Set-up Process
+* Open Terminal {Ctrl+Alt+T}
+
+* git clone https://git.heroku.comneighbourhood2022.git/
+
+* cd instagram-clone
+* code . or atom . depending on the text editor of your choice.
+
 
 # BDD
 * Sign in with the application to start using.
