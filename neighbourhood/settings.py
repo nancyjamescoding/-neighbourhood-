@@ -15,12 +15,16 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+
+django_heroku.settings(locals())
 # from .settings import Hasher
 
 # from decouple import config,Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
