@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% include "navbar.html" %}
 <div class="content-section text-center">
 <div class="media">
   <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="Image" width="152" height="152">

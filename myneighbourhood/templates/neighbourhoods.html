@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include "navbar.html" %}
+    <div class="container">
+        {% for neighbourhood in neighbourhoods %}
+            <div class="col-md-4">
+                <div class="card my-2">
+                    <img src="{{neighbourhood.image.url}}" class= "img-thumbnail" alt="">
+                    <div class="card-body">
+                        <p>{{neighbourhood.location}}</p>
+                    </div>
+                    <a class= "btn btn-outline-dark btn-sm m-1" href="{% url  'neighbourhood_form' nighbourhood.id %}">Join</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>

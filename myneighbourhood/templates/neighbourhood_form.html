@@ -11,10 +11,11 @@
 
 <body>
   {%block content%}
-  <form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
+    {% include "navbar.html" %}
+  <form action="{% url 'add-neighbourhood' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% bootstrap_form neighbourform %}
-    <a href="{% url 'home' %}"><button type="submit">Upload</button></a>
+    <button type="submit">Upload</button></a>
   </form>
   {%endblock%}
 </body>

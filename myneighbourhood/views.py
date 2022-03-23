@@ -3,25 +3,39 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from . models import *
+from django.utils.decorators import method_decorator
+from django.views.generic import(
+    ListView
+)
+from .models import (
+    Neighbourhood
+)
 from .forms import *
 from django.views import generic
 
-
 # Create your views here.
+class NeighbourhoodListView(ListView):
+    template_name = 'neighbourhoods.html'
+    queryset= Neighbourhood.objects.all()
+    context_object_name = 'neighbourhoods'
+
+    @method_decorator(login_required(login_url='/accounts/login/'))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+
+# Lamding page view
 def home(request):
-    neighbourhoods = Neighbourhood.objects.all()
-    return render(request, 'home.html',{"neighbourhoods":neighbourhoods,})
-
-
-@login_required(login_url='/accounts/login/')
-def neighbourhood(request):
-    neighbourhoods = Neighbourhood.objects.all()
-    return render(request,'home.html',{"neighbourhoods":neighbourhoods})
+    if request.user.is_authenticated:
+            # If a user is logged in, redirect them to a page informing them of such
+        return redirect('/neighbourhoods')
+    else:
+        return render(request, 'home.html')
 
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
+    print(request.user.email)
     current_user = request.user
     profile = Profile.objects.all()
 
@@ -32,19 +46,18 @@ def profile(request):
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            # message.success(request, f'Your account has been updated')
-            return render(request,'registration/profile.html')
+            return render(request,'profile.html')
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
 
-
     context = {
         'u_form':u_form,
-        'p_form':p_form
+        'p_form':p_form,
+        'user': current_user
     }
 
-    return render(request, 'registration/profile.html',locals())
+    return render(request, 'profile.html',context)
 
 
 @login_required(login_url='/accounts/login/')
@@ -55,7 +68,7 @@ def addneighbourhood(request):
         neighbourform = NeighbourhoodForm(request.POST,request.FILES)
         if neighbourform.is_valid():
            neighbourform.save()
-           return render (request,'home.html')
+           return redirect('/neighbourhoods')
         else:
            neighbourform=NeighbourhoodForm(request.POST,request.FILES)
 

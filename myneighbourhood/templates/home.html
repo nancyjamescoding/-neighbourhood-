@@ -1,41 +1,19 @@
-{%extends 'base.html'%}
-{% load static %}
+{% extends 'base.html' %}
 {% block content %}
-{{block.super}}
-
-<br>
-<br>
-<br>
-
-
-<div class="container">
-  <div class="row">
-    {% for neighbourhood in neighbourhoods %}
-    <div class="col-md-4",style="">
-
-      <div class="w3-card" style="width:100%; overflow:hidden;">
-        <header class="w3-container w3-light-grey">
-          <hr>
-          <h4>{{ neighbourhood.name }}</h4>
-          <p class='article-content'>location: {{ neighbourhood.location }}</p>
-        </header>
-        <br>
-        <div class="w3-container">
-          <img src="{{ neighbourhood.image.url }}" alt="image" style="width:100%;">
-        </div>
-        <footer class="w3-container">
-          <br>
-          <a href="{%url 'detail' neighbourhood.id %}" style="text-decoration:none;"><button class="btn btn-outline-success center-block"">Join</button></a>
-          <br>
-        </footer>
-      </div>
-      <br><br><br><br>
-
-
+    <h1 style="text-align: center; font-family: cursive;">Neighbourhood App</h1>
+    <div class="card" style="align-items: center;">
+    <img src="../../media/images/BestNeighbourhoods-1200x628-1537463958.jpeg" width="50%" height="80%">
+    <div class="card-body" style="float: right;">
+        <form action="/accounts/register/">
+            <input type="submit" value="Register" />
+        </form>
     </div>
-    {%endfor%}
-  </div>
 
-</div>
-
-{% endblock %}
+    <div class="card-body" style="float: right;">
+        <form action="/accounts/login/">
+            <input type="submit" value="Login" />
+        </form>
+        
+    </div>
+    </div>
+{%endblock%}
