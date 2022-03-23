@@ -17,7 +17,7 @@
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="font-size: large;">
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
@@ -43,13 +43,11 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'add-neighbourhood' %}">Add New Neighbourhood</a>
       </li>
+       <li>
+        <a class="dropdown-item" href="/profile">Profile Page</a>
 
-      <!-- Dropdown -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Others</a>
-        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/profile">Profile Page</a>
+       </li>
+       <li>
           <a class="dropdown-item" href="/logout">Log Out</a>
         </div>
       </li>
