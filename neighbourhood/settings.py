@@ -16,7 +16,7 @@ import django_heroku
 import dj_database_url
 from decouple import config, Csv
 
-django_heroku.settings(locals())
+
 # from .settings import Hasher
 
 # from decouple import config,Csv
