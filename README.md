@@ -30,3 +30,9 @@ https://neigbourhood2022.herokuapp.com/
   * Bootstrap
   * HTML
   * Python
+### Contact Information
+     You can reach us on [nancy.ndung'u@student.moringaschool.com] 
+
+### License
+    . MIT license:
+    . Copyright (c) 2021 [Nancy Ndung'u]
